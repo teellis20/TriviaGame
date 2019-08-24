@@ -2,6 +2,11 @@ $("#start-button").on("click", function (){
     game.start();
 })
 
+$(document).on("click", "#finish-button", function(){
+    sound = new Audio("/../images/andy_bernard_sms.mp3");
+    sound.play();
+    game.done();
+})
 
 var questions = [{
     question: "Who is Pam engaged to at the very beginning of the show?",
@@ -48,7 +53,7 @@ var questions = [{
 var game = {
     correct: 0,
     incorrect: 0,
-    counter: 10,
+    counter: 100,
     countdown: function() {
         game.counter--;
         $("#counter").html(game.counter);
@@ -59,7 +64,7 @@ var game = {
     },
     start: function () {
         timer = setInterval(game.countdown, 1000);
-        $("#wrapper").prepend("<h2>Time Remaining: <span id='counter'> 10 </span> Seconds</h2>");
+        $("#wrapper").prepend("<h2>Time Remaining: <span id='counter'> 100 </span> Seconds</h2>");
             $("#start-button").remove();
             for (var i = 0; i < questions.length; i++) {
                 $("#wrapper").append("<h3>" + questions[i].question + "</h3>");
@@ -67,7 +72,9 @@ var game = {
                     $("#wrapper").append("<input type='radio' name = 'question-" + i + "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
                 }
             }  
+            $("#wrapper").append("<br><button id='finish-button'>Submit</button>");
     },
+
     done: function () {
         $.each($("input[name='question-0']:checked"), function(){
             if ($(this).val() == questions[0].correctAnswer){
