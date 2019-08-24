@@ -1,0 +1,26 @@
+body {
+    background-image: images("..images/dunder.jpg")
+}
+
+h1 {
+    text-align: center;   
+    padding-top: 30px;
+}
+
+button {
+    margin: auto;
+}
+
+#timer {
+    text-align: center;
+}
+
+#container {
+    text-align: center;
+    margin: 0 10% 0 10%;
+    background: lightskyblue;
+}
+
+#wrapper {
+    padding-bottom: 30px;
+}
