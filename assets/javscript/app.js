@@ -3,7 +3,6 @@ $("#start-button").on("click", function (){
 })
 
 $(document).on("click", "#finish-button", function(){
-    sound = new Audio("/../images/andy_bernard_sms.mp3");
     sound.play();
     game.done();
 })
@@ -49,6 +48,9 @@ var questions = [{
     answers: ["WUPHF", "Ryan's Racers", "My-Book", "Face-Space"],
     correctAnswer: "WUPHF",
 }];
+
+var sound = new Audio();
+    sound.src = "andy_bernard_sms.mp3";
 
 var game = {
     correct: 0,
